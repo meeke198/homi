@@ -19,7 +19,7 @@ import com.example.shoppingcart.entity.Product;
 public interface ProductRepo extends JpaRepository<Product, Long> {
     //@Query("SELECT s FROM Student s WHERE s.email = ?1")
     @Query(value="from Product p WHERE p.name LIKE %:name% OR p.description LIKE %:name%")
-    Product findProductByName(@Param("name") String name);
-    // Optional<Product> findProductByName(String name);
+    Optional<List<Product>> findProductByName(@Param("name") String name);
+//     Optional<Product> findProductByName(String name);
     
 }

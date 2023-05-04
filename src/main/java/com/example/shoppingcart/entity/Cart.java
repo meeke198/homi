@@ -4,9 +4,12 @@ import javax.persistence.*;
 
 import com.example.shoppingcart.entity.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
+//import java.util.Set;
+
 
 @Entity
 @Getter
@@ -18,16 +21,10 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    public Cart(Set<Product> products){
-        this.products = products;
-    };
 
-    // @OneToMany(targetEntity = Product.class ) // mappedBy="Cart"
-    // @JoinColumn(name = "cart_id")
-    @ManyToMany(targetEntity = Product.class)
+    @ManyToMany(targetEntity = Product.class, fetch = FetchType.EAGER)
     @JoinTable(name = "cart_products", //ten bang phu
             joinColumns = @JoinColumn(name = "cart_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Set<Product> products;
-    
+    private List<Product> products = new ArrayList<>();
 }
