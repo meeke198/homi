@@ -21,8 +21,6 @@ public class Product {
    private String name;
    @Column(name = "price", nullable = false)
    private Float price;
-   @Column(name = "quantity", columnDefinition = "INT DEFAULT '0'")
-   private Integer quantity;
    @Column(name = "description")
    private String description;
    @Column(name = "urlImage")

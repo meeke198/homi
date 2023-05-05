@@ -48,8 +48,8 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.saveProduct(product));
     }
 
-   @PostMapping("/addToCart")
-    public ResponseEntity<Cart> addProductToCart(@PathVariable Long productId, @PathVariable Long cartId){
-        return ResponseEntity.ok().body(productService.addToCart(productId, cartId));
-  }
+//   @PostMapping("/addToCart")
+//    public ResponseEntity<Cart> addProductToCart(@PathVariable Long productId, @PathVariable Long cartId){
+//        return ResponseEntity.ok().body(productService.addToCart(productId, cartId));
+//  }
 }

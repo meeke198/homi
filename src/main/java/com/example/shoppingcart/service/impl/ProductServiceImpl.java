@@ -45,27 +45,27 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-    @Override
-    public Cart addToCart(Long cartId, Long productId) {
-        Optional<Cart> cart = cartRepository.findById(cartId);
-        Optional<Product> product = productRepo.findById(productId);
-        if(cart.isPresent()){
-            List<Product> productList = cart.get().getProducts();
-                for (int i = 0; i < productList.size(); i++) {
-                    if (productList.get(i).getId().equals(product.get().getId())) {
-                        productList.get(i).setQuantity(productList.get(i).getQuantity() + 1);
-                        return cart.get();
-                    }
-                }
-                productList.add(product.get());
-
-        }else{
-            Cart newCart = cartRepository.save(new Cart());
-            newCart.getProducts().add(product.get());
-            return newCart;
-        }
-        return cart.get();
-    }
+//    @Override
+//    public Cart addToCart(Long cartId, Long productId) {
+//        Optional<Cart> cart = cartRepository.findById(cartId);
+//        Optional<Product> product = productRepo.findById(productId);
+//        if(cart.isPresent()){
+//            List<Product> productList = cart.get().getProducts();
+//                for (int i = 0; i < productList.size(); i++) {
+//                    if (productList.get(i).getId().equals(product.get().getId())) {
+//                        productList.get(i).setQuantity(productList.get(i).getQuantity() + 1);
+//                        return cart.get();
+//                    }
+//                }
+//                productList.add(product.get());
+//
+//        }else{
+//            Cart newCart = cartRepository.save(new Cart());
+//            newCart.getProducts().add(product.get());
+//            return newCart;
+//        }
+//        return cart.get();
+//    }
 
     @Override
     public Product saveProduct(Product product) {
