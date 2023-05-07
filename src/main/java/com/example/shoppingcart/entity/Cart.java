@@ -24,6 +24,9 @@ public class Cart {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany(mappedBy = "proudct")
-    private Collection<Product> products;
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+//    @OneToMany(mappedBy = "product")
+//    private Collection<Product> products;
 }

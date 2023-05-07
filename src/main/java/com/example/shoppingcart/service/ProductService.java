@@ -12,7 +12,7 @@ import java.util.Optional;
 //import java.util.Set;
 
 public interface ProductService {
-    List<Product> getAll();
+    Optional<List<Product>> getAll();
     Optional<Product> getProduct(Long id);
 //    Cart addToCart(Long cartId, Long productId);
     Product saveProduct(Product product);

@@ -1,6 +1,5 @@
 package com.example.shoppingcart.service.impl;
 
-import com.example.shoppingcart.entity.Cart;
 import com.example.shoppingcart.entity.Product;
 import com.example.shoppingcart.repository.CartRepository;
 import com.example.shoppingcart.service.ProductService;
@@ -27,9 +26,9 @@ public class ProductServiceImpl implements ProductService {
     private final CartRepository cartRepository;
 
     @Override
-    public List<Product> getAll() {
+    public Optional<List<Product>> getAll() {
         log.info("Getting product list");
-        List<Product> productList = productRepo.findAll();
+        Optional<List<Product>> productList = Optional.of(productRepo.findAll());
         return productList;
     }
 

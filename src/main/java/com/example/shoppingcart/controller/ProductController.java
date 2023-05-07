@@ -18,11 +18,11 @@ public class ProductController {
     private final ProductServiceImpl productService;
 
     @GetMapping("")
-    public ResponseEntity<List<Product>> getAllProducts(){
+    public ResponseEntity<Optional<List<Product>>> getAllProducts(){
         return ResponseEntity.ok().body(productService.getAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Product>> getProduct(@PathVariable("id") Long id){
+    public ResponseEntity<Optional<Product>> findProductById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(productService.getProduct(id));
     }
     @GetMapping("/search/{name}")

@@ -6,21 +6,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class UserImpl {
+public class UserServiceImpl {
     private final UserRepository userRepository;
 
-    Optional<User> getUser(UUID id) {
-        Optional<User> user = userRepository.findById(id);
+    public Optional<User> getUser(Long userId) {
+        Optional<User> user = userRepository.findById(userId);
         if(user.isPresent()){
             return user;
         } else {
             return Optional.empty();
         }
 
+    }
+
+    public User saveUser(User user){
+        return userRepository.save(user);
     }
 
 }

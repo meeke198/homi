@@ -25,6 +25,8 @@ public class Product {
    private String description;
    @Column(name = "urlImage")
    private String urlImage;
+   @Column(name = "rating")
+   private String rating;
    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.PERSIST)
    @JoinColumn(name = "cart_id", referencedColumnName = "id")
    //tạo 1 khoá ngoại teacher_id ở bảng course và referenced từ id trong bảng
