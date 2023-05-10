@@ -11,6 +11,6 @@ public interface CartService {
 
     List<Cart> findAll();
     Optional<Cart> getCartById(Long id);
-    Cart saveCart(Cart cart);
+    Cart addToCart(Cart cart);
     void deleteCartById(Long id);
 }

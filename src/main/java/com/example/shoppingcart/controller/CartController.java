@@ -37,8 +37,8 @@ public class CartController {
 
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Cart> saveCart(@RequestBody Cart cart){
-        return ResponseEntity.ok().body(cartService.saveCart(cart));
+    @PostMapping("/add")
+    public ResponseEntity<Cart> addToCart(@RequestBody Cart cart){
+        return ResponseEntity.ok().body(cartService.addToCart(cart));
     }
 }

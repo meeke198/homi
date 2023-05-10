@@ -25,7 +25,7 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private final CartRepository cartRepo;
     @Override
-    public Cart saveCart(Cart cart) {
+    public Cart addToCart(Cart cart) {
         log.info("Creating new cart");
         Cart newCart = cartRepo.save(cart);
         return newCart;
